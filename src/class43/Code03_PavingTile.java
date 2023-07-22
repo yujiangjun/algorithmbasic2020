@@ -20,7 +20,7 @@ public class Code03_PavingTile {
 		return process(pre, 0, N);
 	}
 
-	// pre 表示level-1行的状态
+	// pre 表示level-1行的状态 0 表示没有砖 1表示有砖
 	// level表示，正在level行做决定
 	// N 表示一共有多少行 固定的
 	// level-2行及其之上所有行，都摆满砖了
@@ -37,6 +37,7 @@ public class Code03_PavingTile {
 
 		// 没到终止行，可以选择在当前的level行摆瓷砖
 		int[] op = getOp(pre);
+		// 对op数组进行dfs
 		return dfs(op, 0, level, N);
 	}
 
@@ -50,6 +51,7 @@ public class Code03_PavingTile {
 		}
 		int ans = 0;
 		// col位置不横摆
+		// col列不向右摆砖
 		ans += dfs(op, col + 1, level, N); // col位置上不摆横转
 		// col位置横摆, 向右
 		if (col + 1 < op.length && op[col] == 0 && op[col + 1] == 0) {
@@ -101,6 +103,7 @@ public class Code03_PavingTile {
 		int ans = 0;
 		ans += dfs2(op, col - 1, level, N, M);
 		if ((op & (1 << col)) == 0 && col - 1 >= 0 && (op & (1 << (col - 1))) == 0) {
+			 // 对col 和col-1赋值1 即11<<(col-1) =3<<(col-1) 11表示二进制
 			ans += dfs2((op | (3 << (col - 1))), col - 2, level, N, M);
 		}
 		return ans;
