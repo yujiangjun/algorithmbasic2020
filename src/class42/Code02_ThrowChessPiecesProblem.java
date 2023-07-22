@@ -27,6 +27,9 @@ public class Code02_ThrowChessPiecesProblem {
 		}
 		int min = Integer.MAX_VALUE;
 		for (int i = 1; i != rest + 1; i++) { // 第一次扔的时候，仍在了i层
+			// 2中情况
+			// 1 碎了 ,
+			// 2 没有碎
 			min = Math.min(min, Math.max(Process1(i - 1, k - 1), Process1(rest - i, k)));
 		}
 		return min + 1;
@@ -91,6 +94,9 @@ public class Code02_ThrowChessPiecesProblem {
 		return dp[nLevel][kChess];
 	}
 
+	// 最优解
+	// dp[i][j] 含义：i个棋子扔j次最多能够解决的楼层数
+	// 空间压缩 动态规划 2维改1维
 	public static int superEggDrop4(int kChess, int nLevel) {
 		if (nLevel < 1 || kChess < 1) {
 			return 0;
@@ -110,6 +116,7 @@ public class Code02_ThrowChessPiecesProblem {
 			}
 		}
 	}
+
 
 	public static int superEggDrop5(int kChess, int nLevel) {
 		if (nLevel < 1 || kChess < 1) {
