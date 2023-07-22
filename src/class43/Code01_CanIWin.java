@@ -29,16 +29,20 @@ public class Code01_CanIWin {
 	// 返回先手会不会赢
 	public static boolean process(int[] arr, int rest) {
 		if (rest <= 0) {
+			// 先手还没有挑数字，已经面对<=0的情况，所以后手赢了，先手输了
 			return false;
 		}
 		// 先手去尝试所有的情况
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] != -1) {
+				// 先手的决定
 				int cur = arr[i];
 				arr[i] = -1;
 				boolean next = process(arr, rest - cur);
+				// 恢复现场
 				arr[i] = cur;
 				if (!next) {
+					// 子过程中 先手就是后手。后手输了，所以先手就赢了
 					return true;
 				}
 			}

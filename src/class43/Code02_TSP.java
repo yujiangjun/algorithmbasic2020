@@ -59,6 +59,7 @@ public class Code02_TSP {
 	public static int f2(int[][] matrix, int cityStatus, int start) {
 		// cityStatus == cityStatux & (~cityStaus + 1)
 
+		// 二进制中只有一个1了
 		if (cityStatus == (cityStatus & (~cityStatus + 1))) {
 			return matrix[start][0];
 		}
