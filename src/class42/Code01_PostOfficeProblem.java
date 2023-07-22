@@ -25,6 +25,7 @@ public class Code01_PostOfficeProblem {
 		// 0-1 有前面3个邮局负责 2-5 最后一个邮局负责 dp[1][3]+w[2][5]
 		// 0-0 有前面3个邮局负责 1-5 最后一个邮局负责 dp[0][3]+w[2][5]
 		// 前面3个邮局不负责 0-5 最后一个邮局负责 w[5][5]
+		// 注意 如果邮局数量超过了居民点的数量，那么最小代价即dp=0;
 		int[][] dp = new int[N][num + 1];
 		for (int i = 0; i < N; i++) {
 			dp[i][1] = w[0][i];
@@ -40,6 +41,7 @@ public class Code01_PostOfficeProblem {
 		}
 		return dp[N - 1][num];
 	}
+
 
 	public static int min2(int[] arr, int num) {
 		if (arr == null || num < 1 || arr.length < num) {
@@ -64,6 +66,7 @@ public class Code01_PostOfficeProblem {
 				int up = i == N - 1 ? N - 1 : best[i + 1][j];
 				int ans = Integer.MAX_VALUE;
 				int bestChoose = -1;
+				// 利用四边形不等式优化成O(n^2)
 				for (int leftEnd = down; leftEnd <= up; leftEnd++) {
 					int leftCost = leftEnd == -1 ? 0 : dp[leftEnd][j - 1];
 					int rightCost = leftEnd == i ? 0 : w[leftEnd + 1][i];
