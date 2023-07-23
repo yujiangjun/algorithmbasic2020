@@ -11,6 +11,8 @@ package class45;
 // 这就是后缀数组在面试算法中的地位 : 德高望重的噩梦
 public class Code03_LongestCommonSubstringConquerByHeight {
 
+	// dp+空间压缩
+	// dp[i][j] s1 以i位置结尾，s2以j位置结尾的公共子串的最大长度
 	public static int lcs1(String s1, String s2) {
 		if (s1 == null || s2 == null || s1.length() == 0 || s2.length() == 0) {
 			return 0;

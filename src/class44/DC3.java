@@ -15,6 +15,7 @@ public class DC3 {
 	//
 	public int[] rank;
 
+	// height[i]: 0位置开头的串的名次x.x-1名次的前缀串的最长公共子串的长度
 	public int[] height;
 
 
