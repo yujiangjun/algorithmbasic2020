@@ -3,6 +3,9 @@ package class45;
 // 测试链接: https://leetcode.com/problems/create-maximum-number/
 public class Code02_CreateMaximumNumber {
 
+	// 在nums1中取k个数尽量大
+	// 在nums1中取k-1个数尽量大 nums2取1个数尽量大 merge尽量大
+	// 以此类推
 	public static int[] maxNumber1(int[] nums1, int[] nums2, int k) {
 		int len1 = nums1.length;
 		int len2 = nums2.length;
@@ -10,6 +13,7 @@ public class Code02_CreateMaximumNumber {
 			return null;
 		}
 		int[] res = new int[k];
+		// dp[i][j]含义：在i到结尾范围里挑j个数，生成的最大的数的开始位置
 		int[][] dp1 = getdp(nums1); // 生成dp1这个表，以后从nums1中，只要固定拿N个数，
 		int[][] dp2 = getdp(nums2);
 		// get1 从arr1里拿的数量

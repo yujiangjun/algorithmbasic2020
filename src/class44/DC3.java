@@ -2,17 +2,33 @@ package class44;
 
 public class DC3 {
 
+	/**
+	 * 原数组
+	 * [a,a,b,a]
+	 * sa:[3,0,1,2]
+	 * rank:[1,2,3,0]
+	 */
+	// 第一名在哪个位置
+	// 第二名在哪个位置
 	public int[] sa;
 
+	//
 	public int[] rank;
 
 	public int[] height;
 
-	// 构造方法的约定:
-	// 数组叫nums，如果你是字符串，请转成整型数组nums
-	// 数组中，最小值>=1
-	// 如果不满足，处理成满足的，也不会影响使用
-	// max, nums里面最大值是多少
+
+
+	/**
+	 * 构造方法的约定:
+	 * 数组叫nums，如果你是字符串，请转成整型数组nums
+	 * 数组中，最小值>=1
+	 * 如果不满足，处理成满足的，也不会影响使用
+	 * max, nums里面最大值是多少
+	 * 要根据max准备桶的数量
+	 * @param nums 数组
+	 * @param max nums中最大值
+	 */
 	public DC3(int[] nums, int max) {
 		sa = sa(nums, max);
 		rank = rank();
