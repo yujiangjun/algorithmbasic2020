@@ -62,13 +62,18 @@ public class Code02_RemoveBoxes {
 		// 1,1,1,1,1,5
 		// 3 4 5 6 7 8
 		//         !
+		// 找到最后一个1的位置
+		// 相同前缀最后一个的位置
 		int last = L;
 		while (last + 1 <= R && boxes[last + 1] == boxes[L]) {
 			last++;
 		}
+		// L前面有K个1
 		// K个1     (K + last - L) last
+		// 那么来到last ，则有pre个1
 		int pre = K + last - L;
 		int ans = (pre + 1) * (pre + 1) + process2(boxes, last + 1, R, 0, dp);
+		// last+1是不等于L位置的数，所以要从last+2开始试
 		for (int i = last + 2; i <= R; i++) {
 			if (boxes[i] == boxes[L] && boxes[i - 1] != boxes[L]) {
 				ans = Math.max(ans, process2(boxes, last + 1, i - 1, 0, dp) + process2(boxes, i, R, pre + 1, dp));
