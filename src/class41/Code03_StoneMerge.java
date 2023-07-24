@@ -13,6 +13,9 @@ public class Code03_StoneMerge {
 		return s;
 	}
 
+	/**
+	 * 求l..r范围的累加和
+	 */
 	public static int w(int[] s, int l, int r) {
 		return s[r + 1] - s[l];
 	}

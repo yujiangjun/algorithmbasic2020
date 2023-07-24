@@ -2,6 +2,9 @@ package class41;
 
 public class Code02_BestSplitForEveryPosition {
 
+	/**
+	 * 时间复杂度:O(n^3)
+	 */
 	public static int[] bestSplit1(int[] arr) {
 		if (arr == null || arr.length == 0) {
 			return new int[0];
@@ -30,6 +33,10 @@ public class Code02_BestSplitForEveryPosition {
 		return sum[R + 1] - sum[L];
 	}
 
+	/**
+	 * 使用前缀和求L..R范围的累加和来降阶
+	 * 时间复杂度:O(n^2)
+	 */
 	public static int[] bestSplit2(int[] arr) {
 		if (arr == null || arr.length == 0) {
 			return new int[0];
@@ -70,6 +77,7 @@ public class Code02_BestSplitForEveryPosition {
 		}
 		// 最优划分
 		// 0~range-1上，最优划分是左部分[0~best]  右部分[best+1~range-1]
+		// 最优划分点best不回退
 		int best = 0;
 		for (int range = 1; range < N; range++) {
 			while (best + 1 < range) {

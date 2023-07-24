@@ -2,6 +2,10 @@ package class41;
 
 public class Code01_BestSplitForAll {
 
+	/**
+	 * 暴力解
+	 * 时间复杂度:O(n^2)
+	 */
 	public static int bestSplit1(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return 0;
@@ -22,6 +26,10 @@ public class Code01_BestSplitForAll {
 		return ans;
 	}
 
+	/**
+	 *区间划分,划分点不回退
+	 * 时间复杂度:O(n)
+	 */
 	public static int bestSplit2(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return 0;
