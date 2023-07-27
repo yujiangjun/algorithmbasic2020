@@ -76,6 +76,7 @@ public class Code03_DeleteAdjacentSameCharacter {
 			index++;
 		}
 		// index表示，第一个不是[L]字符的位置
+		// k>1表示前面index-1字符可以都消掉，字符剩余0 。否则会剩余1
 		int way1 = (K > 1 ? 0 : 1) + process(str, index, R, false);
 		int way2 = Integer.MAX_VALUE;
 		for (int split = index; split <= R; split++) {
