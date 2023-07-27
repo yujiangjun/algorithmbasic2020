@@ -16,6 +16,8 @@ public class Code04_SplitArrayLargestSum {
 		for (int i = 0; i < N; i++) {
 			sum[i + 1] = sum[i] + nums[i];
 		}
+
+		//dp[i][j]含义:0-i范围内的数,分成j个连续子数组,各自子数组和的最大值
 		int[][] dp = new int[N][K + 1];
 		for (int j = 1; j <= K; j++) {
 			dp[0][j] = nums[0];
