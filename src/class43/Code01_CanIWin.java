@@ -90,9 +90,9 @@ public class Code01_CanIWin {
 			return false;
 		}
 		int[] dp = new int[1 << (choose + 1)];
-		// dp[status] == 1  true
-		// dp[status] == -1  false
-		// dp[status] == 0  process(status) 没算过！去算！
+		// dp[status] == 1  true 先手赢
+		// dp[status] == -1  false 先手输
+		// dp[status] == 0  process(status) 还没算过！去递归！
 		return process2(choose, 0, total, dp);
 	}
 

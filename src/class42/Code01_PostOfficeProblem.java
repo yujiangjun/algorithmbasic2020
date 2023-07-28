@@ -9,6 +9,7 @@ public class Code01_PostOfficeProblem {
 			return 0;
 		}
 		int N = arr.length;
+		// w[i][j]表示i-j 范围内由最后一个邮局负责的最小代价是多少
 		int[][] w = new int[N + 1][N + 1];
 		for (int L = 0; L < N; L++) {
 			for (int R = L + 1; R < N; R++) {
