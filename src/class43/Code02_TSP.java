@@ -112,6 +112,7 @@ public class Code02_TSP {
 					min = Math.min(min, cur);
 				}
 			}
+			// 恢复现场，把start位的1补充上
 			cityStatus |= (1 << start);
 			dp[cityStatus][start] = min;
 		}
